@@ -184,6 +184,10 @@ namespace Consolas
             {
                 Status = TaskStatus.RanToCompletion;
                 Report(new Report() { Message = Status.ToString(), Time = watch.Elapsed, Status = Status });
+                if (Times == null)
+                {
+                    Times = new ObservableCollection<TimeSpan>();
+                }
                 Times.Add(watch.Elapsed);
                 watch.Stop();
             };
