@@ -112,7 +112,7 @@ namespace Consolas
 
         public Command()
         {
-            Status = TaskStatus.Running;
+            Status = TaskStatus.Created;
             if (DesignerProperties.GetIsInDesignMode(new System.Windows.FrameworkElement()))
             {
                 this.FileName = "filname.exe";

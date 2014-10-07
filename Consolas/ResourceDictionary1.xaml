@@ -17,6 +17,5 @@
         <Setter Property="ItemsPanel" Value="{StaticResource ItemsPanelTemplate1}" />
         <Setter Property="ItemTemplate" Value="{StaticResource DataTemplate1}" />
     </Style>
-
-
+    
 </ResourceDictionary>
