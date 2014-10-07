@@ -13,6 +13,6 @@
         d:DataContext="{d:DesignData /SampleData/CommandCollectionSampleData.xaml}" DataContext="{DynamicResource TestCollection}">
     
     <Grid>
-        <ListBox Margin="10" ItemsSource="{Binding}" ItemTemplate="{DynamicResource DataTemplate1}" DataContext="{Binding Mode=OneWay}" ItemsPanel="{DynamicResource ItemsPanelTemplate1}" ScrollViewer.HorizontalScrollBarVisibility="Disabled"/>
+        <ListBox Style="{StaticResource ListBoxStyle}" ItemsSource="{Binding}" DataContext="{Binding Mode=OneWay}" />
     </Grid>
 </Window>
