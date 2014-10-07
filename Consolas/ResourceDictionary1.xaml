@@ -1,0 +1,36 @@
+﻿<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Consolas="clr-namespace:Consolas" xmlns:System="clr-namespace:System;assembly=mscorlib"
+    xmlns:local="clr-namespace:Consolas">
+	<!-- Resource dictionary entries should be defined here. -->
+    <DataTemplate x:Key="DataTemplate1">
+        <local:CommandControl/>
+    </DataTemplate>
+    <Consolas:CommandCollection x:Key="TestCollection">
+        <Consolas:Command FileName="Aliquam nam etiam integer" PercentComplete="797.75" Status="Running" Title="Curae consequat adipiscing donec praesent" WorkingDirectory="Curabitur class vestibulum maecenas phasellus" />
+
+        <Consolas:Command FileName="Nullam cras aptent duis" PercentComplete="935.12" Status="WaitingForActivation" Title="Mauris elementum sed facilisis" WorkingDirectory="Aenean convallis dignissim" />
+
+        <Consolas:Command FileName="Congue quisque vestibulum habitasse" PercentComplete="772.15" Status="Running" Title="Fermentum fringilla est lorem parturient" WorkingDirectory="Auctor accumsan fusce dis">
+        </Consolas:Command>
+        <Consolas:Command FileName="Nulla aliquam aliquet dictum" PercentComplete="533.14" Status="Canceled" Title="Hendrerit vivamus himenaeos hac" WorkingDirectory="Cursus morbi">            
+        </Consolas:Command>
+        <Consolas:Command FileName="Lectus mus blandit" PercentComplete="749.07" Status="RanToCompletion" Title="Dictumst penatibus porttitor" WorkingDirectory="Imperdiet bibendum leo malesuada">            
+        </Consolas:Command>
+        <Consolas:Command FileName="Dapibus ultricies ligula" PercentComplete="654.62" Status="Faulted" Title="Tincidunt cubilia tristique" WorkingDirectory="Commodo proin conubia libero">            
+        </Consolas:Command>
+        <Consolas:Command FileName="Eleifend amet" PercentComplete="689.7" Status="Running" Title="Non litora augue nunc" WorkingDirectory="Nec venenatis vestibulum adipiscing">            
+        </Consolas:Command>
+        <Consolas:Command FileName="Euismod luctus vulputate per fames" PercentComplete="828.68" Status="Created" Title="Parturient dolor" WorkingDirectory="Ante egestas">            
+        </Consolas:Command>
+        <Consolas:Command FileName="Facilisi ipsum faucibus justo" PercentComplete="722.48" Status="RanToCompletion" Title="Sem mattis mauris felis sit" WorkingDirectory="Magnis sed">            
+        </Consolas:Command>
+        <Consolas:Command FileName="Feugiat inceptos interdum vestibulum lacus" PercentComplete="262.46" Status="WaitingForActivation" Title="Vestibulum habitant nam consequat diam" WorkingDirectory="Arcu curabitur phasellus vel mollis">            
+        </Consolas:Command>
+    </Consolas:CommandCollection>
+    <ItemsPanelTemplate x:Key="ItemsPanelTemplate1">
+    	<WrapPanel IsItemsHost="True"/>
+    </ItemsPanelTemplate>
+
+</ResourceDictionary>
