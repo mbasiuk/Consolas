@@ -4,8 +4,6 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Xml.Serialization;
@@ -63,26 +61,17 @@ namespace Consolas
             set { status = value; NotifyPropertyChanged(StatusString); }
         }
 
-        private double percentComplete;
-        private const string PercentCompleteString = "PercentComplete";
-        private const string percentCompleteString = "percentComplete";
-        [XmlIgnore]
-        public double PercentComplete
+        public const string LastDurationString = "LastDuration";
+        public const string lastDurationString = "lastDuration";
+        public const string DurationString = "Duration";
+        private TimeSpan lastDuration;        
+        [XmlAttribute(lastDurationString)]
+        [DisplayName(DurationString)]
+        public TimeSpan LastDuration
         {
-            get { return percentComplete; }
-            set { percentComplete = value; NotifyPropertyChanged(PercentCompleteString); }
+            get { return lastDuration; }
+            set { lastDuration = value; NotifyPropertyChanged(LastDurationString); }
         }
-
-        private ObservableCollection<TimeSpan> times;
-        private const string TimesString = "Times";
-        private const string timesString = "times";
-        [XmlArray]
-        public ObservableCollection<TimeSpan> Times
-        {
-            get { return times; }
-            set { times = value; NotifyPropertyChanged(TimesString); }
-        }
-
 
         #endregion
 
@@ -115,12 +104,10 @@ namespace Consolas
             Status = TaskStatus.Created;
             if (DesignerProperties.GetIsInDesignMode(new System.Windows.FrameworkElement()))
             {
-                this.FileName = "filname.exe";
-                this.WorkingDirectory = @"C:\working direcroty";
-                this.Status = TaskStatus.Running;
-                this.Title = "test title";
-                this.PercentComplete = 25.0;
-                this.Times = new ObservableCollection<TimeSpan>();
+                FileName = "filname.exe";
+                WorkingDirectory = @"C:\working direcroty";
+                Status = TaskStatus.Running;
+                Title = "test title";                
             }
             report = new List<Report>();
         }
@@ -128,20 +115,11 @@ namespace Consolas
         public void Report(Report value)
         {
             report.Add(value);
-            if (Times != null && times.Count > 0)
-            {
-                double avarageTime = Times.Sum(t => t.Ticks) / times.Count;
-                PercentComplete = Math.Min(100.0, value.Time.Ticks * 100.0 / avarageTime);
-            }
-            else
-            {
-                PercentComplete = double.NaN;
-            }
         }
 
         public bool CanExecute(object parameter)
         {
-            return true;
+            return Status == TaskStatus.Created || Status == TaskStatus.RanToCompletion;
         }
 
         public event EventHandler CanExecuteChanged;
@@ -184,11 +162,7 @@ namespace Consolas
             {
                 Status = TaskStatus.RanToCompletion;
                 Report(new Report() { Message = Status.ToString(), Time = watch.Elapsed, Status = Status });
-                if (Times == null)
-                {
-                    Times = new ObservableCollection<TimeSpan>();
-                }
-                Times.Add(watch.Elapsed);
+                LastDuration = watch.Elapsed;                
                 watch.Stop();
             };
 
@@ -229,7 +203,7 @@ namespace Consolas
     public class CommandCollection : ObservableCollection<Command>
     {
         public CommandCollection()
-        { 
+        {
 
         }
     }

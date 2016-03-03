@@ -5,7 +5,7 @@
     xmlns:local="clr-namespace:Consolas">
 	<!-- Resource dictionary entries should be defined here. -->
     <DataTemplate x:Key="DataTemplate1">
-        <local:CommandControl/>
+        <local:TestControl/>
     </DataTemplate>
 	<ItemsPanelTemplate x:Key="ItemsPanelTemplate1">
     	<WrapPanel IsItemsHost="True"/>

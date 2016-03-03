@@ -10,7 +10,7 @@
         mc:Ignorable="d"
         x:Class="Consolas.MainWindow"
         Title="MainWindow"        
-        d:DataContext="{d:DesignData /SampleData/CommandCollectionSampleData.xaml}" DataContext="{DynamicResource TestCollection}">
+        d:DataContext="{d:DesignData /SampleData/CommandCollectionSampleData.xaml}">
     
     <Grid>
         <ListBox Style="{StaticResource ListBoxStyle}" ItemsSource="{Binding}" DataContext="{Binding Mode=OneWay}" />
