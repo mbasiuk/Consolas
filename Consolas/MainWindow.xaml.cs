@@ -179,7 +179,16 @@ namespace Consolas
             try
             {
                 process = new Process();
-                ProcessStartInfo startInfo = new ProcessStartInfo(task.FileName, task.Arguments);
+                ProcessStartInfo startInfo = new ProcessStartInfo
+                {
+                    FileName = task.FileName,
+                    Arguments = task.Arguments,                    
+                    UseShellExecute = false,
+                    WindowStyle = ProcessWindowStyle.Hidden,
+                    CreateNoWindow = true,
+                    RedirectStandardOutput = true,
+                    RedirectStandardError = true
+                };
                 process.StartInfo = startInfo;
                 process.Start();
                 events.AddTaskLog(task.ID, EventTypes.TaskStarted, task.Title);
@@ -191,12 +200,13 @@ namespace Consolas
             try
             {
                 process.WaitForExit();
+                events.AddTaskLog(task.ID, EventTypes.TaskCompleted, task.Title);
             }
             catch (Exception ex)
             {
                 events.AddTaskLog(task.ID, EventTypes.TaskProcessError, task.Title + ": " + ex.Message);
             }
-            events.AddTaskLog(task.ID, EventTypes.TaskCompleted, task.Title);
+           
         }
     }
 }

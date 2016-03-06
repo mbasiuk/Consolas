@@ -22,7 +22,7 @@
         </Style>
 
         <DataTemplate x:Key="DataTemplate1">
-            <Button Click="Button_Click">RUN</Button>
+            <Button Click="Button_Click" Content="{Binding Title}"></Button>
         </DataTemplate>
         <ItemsPanelTemplate x:Key="ItemsPanelTemplate1">
             <WrapPanel IsItemsHost="True"/>
