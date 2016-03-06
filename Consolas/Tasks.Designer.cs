@@ -283,7 +283,7 @@ namespace Consolas {
             
             private global::System.Data.DataColumn columnTitle;
             
-            private global::System.Data.DataColumn columnPath;
+            private global::System.Data.DataColumn columnFileName;
             
             private global::System.Data.DataColumn columnArguments;
             
@@ -338,9 +338,9 @@ namespace Consolas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn PathColumn {
+            public global::System.Data.DataColumn FileNameColumn {
                 get {
-                    return this.columnPath;
+                    return this.columnFileName;
                 }
             }
             
@@ -389,12 +389,12 @@ namespace Consolas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TaskRow AddTaskRow(string Title, string Path, string Arguments) {
+            public TaskRow AddTaskRow(string Title, string FileName, string Arguments) {
                 TaskRow rowTaskRow = ((TaskRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Title,
-                        Path,
+                        FileName,
                         Arguments};
                 rowTaskRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTaskRow);
@@ -427,7 +427,7 @@ namespace Consolas {
             internal void InitVars() {
                 this.columnID = base.Columns["ID"];
                 this.columnTitle = base.Columns["Title"];
-                this.columnPath = base.Columns["Path"];
+                this.columnFileName = base.Columns["FileName"];
                 this.columnArguments = base.Columns["Arguments"];
             }
             
@@ -438,8 +438,8 @@ namespace Consolas {
                 base.Columns.Add(this.columnID);
                 this.columnTitle = new global::System.Data.DataColumn("Title", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTitle);
-                this.columnPath = new global::System.Data.DataColumn("Path", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPath);
+                this.columnFileName = new global::System.Data.DataColumn("FileName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFileName);
                 this.columnArguments = new global::System.Data.DataColumn("Arguments", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnArguments);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
@@ -603,11 +603,11 @@ namespace Consolas {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Title {
                 get {
-                    try {
-                        return ((string)(this[this.tableTask.TitleColumn]));
+                    if (this.IsTitleNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Title\' in table \'Task\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableTask.TitleColumn]));
                     }
                 }
                 set {
@@ -617,17 +617,17 @@ namespace Consolas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Path {
+            public string FileName {
                 get {
-                    try {
-                        return ((string)(this[this.tableTask.PathColumn]));
+                    if (this.IsFileNameNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Path\' in table \'Task\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableTask.FileNameColumn]));
                     }
                 }
                 set {
-                    this[this.tableTask.PathColumn] = value;
+                    this[this.tableTask.FileNameColumn] = value;
                 }
             }
             
@@ -635,11 +635,11 @@ namespace Consolas {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Arguments {
                 get {
-                    try {
-                        return ((string)(this[this.tableTask.ArgumentsColumn]));
+                    if (this.IsArgumentsNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Arguments\' in table \'Task\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableTask.ArgumentsColumn]));
                     }
                 }
                 set {
@@ -661,14 +661,14 @@ namespace Consolas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPathNull() {
-                return this.IsNull(this.tableTask.PathColumn);
+            public bool IsFileNameNull() {
+                return this.IsNull(this.tableTask.FileNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPathNull() {
-                this[this.tableTask.PathColumn] = global::System.Convert.DBNull;
+            public void SetFileNameNull() {
+                this[this.tableTask.FileNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

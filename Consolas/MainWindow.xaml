@@ -8,8 +8,11 @@
         FontFamily="Consolas"
         Title="MainWindow" Height="350" Width="525" Loaded="Window_Loaded" Closing="Window_Closing">
     <Window.Resources>
+        <local:HeightCoverter x:Key="heightCoverter" />
+
         <Style TargetType="DataGrid">
             <Setter Property="MinColumnWidth" Value="100"></Setter>
+            <Setter Property="MaxHeight" Value="{Binding ElementName=LayoutRoot, Path=ActualHeight, Mode=OneWay, Converter={StaticResource heightCoverter}}"></Setter>
         </Style>
         <Style TargetType="Canvas" x:Key="containerStyle">
             <Setter Property="Canvas.Left" Value="10"></Setter>
@@ -17,22 +20,37 @@
             <Setter Property="VerticalAlignment" Value="Top"></Setter>
             <Setter Property="Visibility" Value="Hidden"></Setter>
         </Style>
+
+        <DataTemplate x:Key="DataTemplate1">
+            <Button Click="Button_Click">RUN</Button>
+        </DataTemplate>
+        <ItemsPanelTemplate x:Key="ItemsPanelTemplate1">
+            <WrapPanel IsItemsHost="True"/>
+        </ItemsPanelTemplate>
+
+        <Style x:Key="ListBoxStyle" TargetType="ListView">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
+            <Setter Property="ItemsPanel" Value="{StaticResource ItemsPanelTemplate1}" />
+            <Setter Property="ItemTemplate" Value="{StaticResource DataTemplate1}" />
+        </Style>
+
     </Window.Resources>
 
-    <Canvas Background="#FFEEAFAF">
+    <Canvas x:Name="LayoutRoot" Background="#FFEEAFAF">
         <Canvas x:Name="editCommandsCanvas" Style="{StaticResource containerStyle}" >
             <DataGrid x:Name="dataGrid" />
         </Canvas>
 
         <Canvas x:Name="runCommandCanvas" Style="{StaticResource containerStyle}">
-            <ListView x:Name="runCommandListView" ></ListView>
+            <ListView x:Name="runCommandListView" Style="{StaticResource ListBoxStyle}"></ListView>
         </Canvas>
 
         <Canvas x:Name="viewLogsCanvas" Style="{StaticResource containerStyle}">
             <DataGrid x:Name="viewLogsDataGrid" IsReadOnly="True"/>
         </Canvas>
-                
-        
+
+
         <Button x:Name="editCommandsButton" Content="edit commands" Canvas.Left="10" Canvas.Top="10" Width="113" Click="editCommands_Click"/>
         <Button x:Name="runCommandButton" Content="run command" Canvas.Left="128" Canvas.Top="10" Width="102" Click="runComnands_click"/>
         <Button x:Name="viewLogsButton" Content="view logs" Canvas.Left="235" Canvas.Top="10" Width="102" Click="viewLogsButton_Click"/>

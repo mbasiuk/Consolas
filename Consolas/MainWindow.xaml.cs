@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace Consolas
 {
@@ -64,7 +65,8 @@ namespace Consolas
             {
                 events.AddApplicationLog(EventTypes.ApplicationEnded);
             }
-            catch {
+            catch
+            {
             }
             try
             {
@@ -92,7 +94,7 @@ namespace Consolas
 
             editCommandsCanvas.Visibility = Visibility.Visible;
             editCommandsButton.IsEnabled = false;
-           
+
 
             if (dataGrid.ItemsSource == null)
             {
@@ -142,7 +144,7 @@ namespace Consolas
             editCommandsButton.IsEnabled = true;
             runCommandButton.IsEnabled = true;
             viewLogsButton.IsEnabled = true;
-        }      
+        }
 
         private void viewLogsButton_Click(object sender, RoutedEventArgs e)
         {
@@ -156,12 +158,45 @@ namespace Consolas
                 {
                     viewLogsDataGrid.ItemsSource = events.Event.DefaultView;
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     events.AddApplicationLog(EventTypes.ApplicationError, ex.Message);
                     Trace.TraceError(ex.Message);
                 }
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Tasks.TaskRow task = (Tasks.TaskRow)((System.Data.DataRowView)((FrameworkElement)sender).DataContext).Row;
+            events.AddTaskLog(task.ID, EventTypes.TaskStartRequested, task.Title);
+            startExecutingTask(task);
+        }
+
+        private void startExecutingTask(Tasks.TaskRow task)
+        {
+            Process process = null;
+            try
+            {
+                process = new Process();
+                ProcessStartInfo startInfo = new ProcessStartInfo(task.FileName, task.Arguments);
+                process.StartInfo = startInfo;
+                process.Start();
+                events.AddTaskLog(task.ID, EventTypes.TaskStarted, task.Title);
+            }
+            catch (Exception ex)
+            {
+                events.AddTaskLog(task.ID, EventTypes.TaskStartError, task.Title + ": " + ex.Message);
+            }
+            try
+            {
+                process.WaitForExit();
+            }
+            catch (Exception ex)
+            {
+                events.AddTaskLog(task.ID, EventTypes.TaskProcessError, task.Title + ": " + ex.Message);
+            }
+            events.AddTaskLog(task.ID, EventTypes.TaskCompleted, task.Title);
         }
     }
 }

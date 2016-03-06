@@ -11,6 +11,7 @@
         TaskStartRequested,
         TaskStarted,
         TaskStartError,
+        TaskProcessError,
         TaskCompleted
     }
 }

@@ -61,6 +61,7 @@
       <DependentUpon>Events.xsd</DependentUpon>
     </Compile>
     <Compile Include="EventTypes.cs" />
+    <Compile Include="HeightCoverter.cs" />
     <Compile Include="LoggerExtention.cs" />
     <Compile Include="Tasks.Designer.cs">
       <AutoGen>True</AutoGen>
