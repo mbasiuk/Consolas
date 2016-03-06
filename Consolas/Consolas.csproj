@@ -62,9 +62,6 @@
     </Compile>
     <Compile Include="EventTypes.cs" />
     <Compile Include="LoggerExtention.cs" />
-    <Compile Include="Tasks.cs">
-      <DependentUpon>Tasks.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Tasks.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -6,6 +6,7 @@
         ApplicationEnded,
         ApplicationError,
         ApplicationLoaded,
+        ApplicationInfo,
         TaskEdit,
         TaskStartRequested,
         TaskStarted,
