@@ -30,8 +30,6 @@ namespace Consolas {
         
         private EventTypeDataTable tableEventType;
         
-        private global::System.Data.DataRelation relationFK_EventType_Events;
-        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -244,7 +242,6 @@ namespace Consolas {
                     this.tableEventType.InitVars();
                 }
             }
-            this.relationFK_EventType_Events = this.Relations["FK_EventType_Events"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -276,10 +273,6 @@ namespace Consolas {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            this.relationFK_EventType_Events = new global::System.Data.DataRelation("FK_EventType_Events", new global::System.Data.DataColumn[] {
-                        this.tableEventType.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableEvents.EventTypeIDColumn}, false);
-            this.Relations.Add(this.relationFK_EventType_Events);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -782,16 +775,13 @@ namespace Consolas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public EventsRow AddEventsRow(int ID, int TaskID, EventTypeRow parentEventTypeRowByFK_EventType_Events, string Details) {
+            public EventsRow AddEventsRow(int ID, int TaskID, int EventTypeID, string Details) {
                 EventsRow rowEventsRow = ((EventsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ID,
                         TaskID,
-                        null,
+                        EventTypeID,
                         Details};
-                if ((parentEventTypeRowByFK_EventType_Events != null)) {
-                    columnValuesArray[2] = parentEventTypeRowByFK_EventType_Events[0];
-                }
                 rowEventsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowEventsRow);
                 return rowEventsRow;
@@ -1425,17 +1415,6 @@ namespace Consolas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public EventTypeRow EventTypeRow {
-                get {
-                    return ((EventTypeRow)(this.GetParentRow(this.Table.ParentRelations["FK_EventType_Events"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_EventType_Events"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsTaskIDNull() {
                 return this.IsNull(this.tableEvents.TaskIDColumn);
             }
@@ -1522,17 +1501,6 @@ namespace Consolas {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetDescriptionNull() {
                 this[this.tableEventType.DescriptionColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public EventsRow[] GetEventsRows() {
-                if ((this.Table.ChildRelations["FK_EventType_Events"] == null)) {
-                    return new EventsRow[0];
-                }
-                else {
-                    return ((EventsRow[])(base.GetChildRows(this.Table.ChildRelations["FK_EventType_Events"])));
-                }
             }
         }
         

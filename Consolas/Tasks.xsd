@@ -12,7 +12,7 @@
   <xs:element name="Tasks" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Tasks" msprop:Generator_UserDSName="Tasks">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Task" msprop:Generator_TableClassName="TaskDataTable" msprop:Generator_TableVarName="tableTask" msprop:Generator_RowChangedName="TaskRowChanged" msprop:Generator_TablePropName="Task" msprop:Generator_RowDeletingName="TaskRowDeleting" msprop:Generator_RowChangingName="TaskRowChanging" msprop:Generator_RowEvHandlerName="TaskRowChangeEventHandler" msprop:Generator_RowDeletedName="TaskRowDeleted" msprop:Generator_RowClassName="TaskRow" msprop:Generator_UserTableName="Task" msprop:Generator_RowEvArgName="TaskRowChangeEvent">
+        <xs:element name="Task" msprop:Generator_TableClassName="TaskDataTable" msprop:Generator_TableVarName="tableTask" msprop:Generator_TablePropName="Task" msprop:Generator_RowDeletingName="TaskRowDeleting" msprop:Generator_RowChangingName="TaskRowChanging" msprop:Generator_RowEvHandlerName="TaskRowChangeEventHandler" msprop:Generator_RowDeletedName="TaskRowDeleted" msprop:Generator_UserTableName="Task" msprop:Generator_RowChangedName="TaskRowChanged" msprop:Generator_RowEvArgName="TaskRowChangeEvent" msprop:Generator_RowClassName="TaskRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -22,7 +22,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Events" msprop:Generator_TableClassName="EventsDataTable" msprop:Generator_TableVarName="tableEvents" msprop:Generator_RowChangedName="EventsRowChanged" msprop:Generator_TablePropName="Events" msprop:Generator_RowDeletingName="EventsRowDeleting" msprop:Generator_RowChangingName="EventsRowChanging" msprop:Generator_RowEvHandlerName="EventsRowChangeEventHandler" msprop:Generator_RowDeletedName="EventsRowDeleted" msprop:Generator_RowClassName="EventsRow" msprop:Generator_UserTableName="Events" msprop:Generator_RowEvArgName="EventsRowChangeEvent">
+        <xs:element name="Events" msprop:Generator_TableClassName="EventsDataTable" msprop:Generator_TableVarName="tableEvents" msprop:Generator_TablePropName="Events" msprop:Generator_RowDeletingName="EventsRowDeleting" msprop:Generator_RowChangingName="EventsRowChanging" msprop:Generator_RowEvHandlerName="EventsRowChangeEventHandler" msprop:Generator_RowDeletedName="EventsRowDeleted" msprop:Generator_UserTableName="Events" msprop:Generator_RowChangedName="EventsRowChanged" msprop:Generator_RowEvArgName="EventsRowChangeEvent" msprop:Generator_RowClassName="EventsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -32,7 +32,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="EventType" msprop:Generator_TableClassName="EventTypeDataTable" msprop:Generator_TableVarName="tableEventType" msprop:Generator_RowChangedName="EventTypeRowChanged" msprop:Generator_TablePropName="EventType" msprop:Generator_RowDeletingName="EventTypeRowDeleting" msprop:Generator_RowChangingName="EventTypeRowChanging" msprop:Generator_RowEvHandlerName="EventTypeRowChangeEventHandler" msprop:Generator_RowDeletedName="EventTypeRowDeleted" msprop:Generator_RowClassName="EventTypeRow" msprop:Generator_UserTableName="EventType" msprop:Generator_RowEvArgName="EventTypeRowChangeEvent">
+        <xs:element name="EventType" msprop:Generator_TableClassName="EventTypeDataTable" msprop:Generator_TableVarName="tableEventType" msprop:Generator_TablePropName="EventType" msprop:Generator_RowDeletingName="EventTypeRowDeleting" msprop:Generator_RowChangingName="EventTypeRowChanging" msprop:Generator_RowEvHandlerName="EventTypeRowChangeEventHandler" msprop:Generator_RowDeletedName="EventTypeRowDeleted" msprop:Generator_UserTableName="EventType" msprop:Generator_RowChangedName="EventTypeRowChanged" msprop:Generator_RowEvArgName="EventTypeRowChangeEvent" msprop:Generator_RowClassName="EventTypeRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -54,7 +54,7 @@
       <xs:selector xpath=".//mstns:EventType" />
       <xs:field xpath="mstns:ID" />
     </xs:unique>
-    <xs:keyref name="FK_EventType_Events" refer="EventType_Constraint1" msprop:rel_Generator_UserChildTable="Events" msprop:rel_Generator_ChildPropName="GetEventsRows" msprop:rel_Generator_UserRelationName="FK_EventType_Events" msprop:rel_Generator_ParentPropName="EventTypeRow" msprop:rel_Generator_RelationVarName="relationFK_EventType_Events" msprop:rel_Generator_UserParentTable="EventType">
+    <xs:keyref name="FK_EventType_Events" refer="EventType_Constraint1" msdata:ConstraintOnly="true">
       <xs:selector xpath=".//mstns:Events" />
       <xs:field xpath="mstns:EventTypeID" />
     </xs:keyref>

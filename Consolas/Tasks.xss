@@ -7,11 +7,11 @@
 <DiagramLayout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ex:showrelationlabel="False" ViewPortX="394" ViewPortY="0" xmlns:ex="urn:schemas-microsoft-com:xml-msdatasource-layout-extended" xmlns="urn:schemas-microsoft-com:xml-msdatasource-layout">
   <Shapes>
     <Shape ID="DesignTable:Task" ZOrder="5" X="548" Y="196" Height="195" Width="168" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="191" />
-    <Shape ID="DesignTable:Events" ZOrder="4" X="764" Y="192" Height="333" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="329" />
+    <Shape ID="DesignTable:Events" ZOrder="4" X="764" Y="192" Height="195" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="191" />
     <Shape ID="DesignTable:EventType" ZOrder="3" X="954" Y="194" Height="172" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="168" />
   </Shapes>
   <Connectors>
-    <Connector ID="DesignRelation:FK_Task_Events" ZOrder="1" LineWidth="11">
+    <Connector ID="DesignRelation:FK_Task_Events" ZOrder="2" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>716</X>
@@ -23,7 +23,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK_EventType_Events" ZOrder="2" LineWidth="11">
+    <Connector ID="DesignRelation:FK_EventType_Events" ZOrder="1" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>954</X>
