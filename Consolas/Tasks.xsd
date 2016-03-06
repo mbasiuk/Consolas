@@ -12,31 +12,13 @@
   <xs:element name="Tasks" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Tasks" msprop:Generator_UserDSName="Tasks">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Task" msprop:Generator_TableClassName="TaskDataTable" msprop:Generator_TableVarName="tableTask" msprop:Generator_TablePropName="Task" msprop:Generator_RowDeletingName="TaskRowDeleting" msprop:Generator_RowChangingName="TaskRowChanging" msprop:Generator_RowEvHandlerName="TaskRowChangeEventHandler" msprop:Generator_RowDeletedName="TaskRowDeleted" msprop:Generator_UserTableName="Task" msprop:Generator_RowChangedName="TaskRowChanged" msprop:Generator_RowEvArgName="TaskRowChangeEvent" msprop:Generator_RowClassName="TaskRow">
+        <xs:element name="Task" msprop:Generator_TableClassName="TaskDataTable" msprop:Generator_TableVarName="tableTask" msprop:Generator_RowChangedName="TaskRowChanged" msprop:Generator_TablePropName="Task" msprop:Generator_RowDeletingName="TaskRowDeleting" msprop:Generator_RowChangingName="TaskRowChanging" msprop:Generator_RowEvHandlerName="TaskRowChangeEventHandler" msprop:Generator_RowDeletedName="TaskRowDeleted" msprop:Generator_RowClassName="TaskRow" msprop:Generator_UserTableName="Task" msprop:Generator_RowEvArgName="TaskRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
               <xs:element name="Title" msprop:Generator_ColumnVarNameInTable="columnTitle" msprop:Generator_ColumnPropNameInRow="Title" msprop:Generator_ColumnPropNameInTable="TitleColumn" msprop:Generator_UserColumnName="Title" type="xs:string" minOccurs="0" />
               <xs:element name="Path" msprop:Generator_ColumnVarNameInTable="columnPath" msprop:Generator_ColumnPropNameInRow="Path" msprop:Generator_ColumnPropNameInTable="PathColumn" msprop:Generator_UserColumnName="Path" type="xs:string" minOccurs="0" />
               <xs:element name="Arguments" msprop:Generator_ColumnVarNameInTable="columnArguments" msprop:Generator_ColumnPropNameInRow="Arguments" msprop:Generator_ColumnPropNameInTable="ArgumentsColumn" msprop:Generator_UserColumnName="Arguments" type="xs:string" minOccurs="0" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="Events" msprop:Generator_TableClassName="EventsDataTable" msprop:Generator_TableVarName="tableEvents" msprop:Generator_TablePropName="Events" msprop:Generator_RowDeletingName="EventsRowDeleting" msprop:Generator_RowChangingName="EventsRowChanging" msprop:Generator_RowEvHandlerName="EventsRowChangeEventHandler" msprop:Generator_RowDeletedName="EventsRowDeleted" msprop:Generator_UserTableName="Events" msprop:Generator_RowChangedName="EventsRowChanged" msprop:Generator_RowEvArgName="EventsRowChangeEvent" msprop:Generator_RowClassName="EventsRow">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
-              <xs:element name="TaskID" msprop:Generator_ColumnVarNameInTable="columnTaskID" msprop:Generator_ColumnPropNameInRow="TaskID" msprop:Generator_ColumnPropNameInTable="TaskIDColumn" msprop:Generator_UserColumnName="TaskID" type="xs:int" minOccurs="0" />
-              <xs:element name="EventTypeID" msprop:Generator_ColumnVarNameInTable="columnEventTypeID" msprop:Generator_ColumnPropNameInRow="EventTypeID" msprop:Generator_ColumnPropNameInTable="EventTypeIDColumn" msprop:Generator_UserColumnName="EventTypeID" type="xs:int" minOccurs="0" />
-              <xs:element name="Details" msprop:Generator_ColumnVarNameInTable="columnDetails" msprop:Generator_ColumnPropNameInRow="Details" msprop:Generator_ColumnPropNameInTable="DetailsColumn" msprop:Generator_UserColumnName="Details" type="xs:string" minOccurs="0" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="EventType" msprop:Generator_TableClassName="EventTypeDataTable" msprop:Generator_TableVarName="tableEventType" msprop:Generator_TablePropName="EventType" msprop:Generator_RowDeletingName="EventTypeRowDeleting" msprop:Generator_RowChangingName="EventTypeRowChanging" msprop:Generator_RowEvHandlerName="EventTypeRowChangeEventHandler" msprop:Generator_RowDeletedName="EventTypeRowDeleted" msprop:Generator_UserTableName="EventType" msprop:Generator_RowChangedName="EventTypeRowChanged" msprop:Generator_RowEvArgName="EventTypeRowChangeEvent" msprop:Generator_RowClassName="EventTypeRow">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
-              <xs:element name="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" msprop:Generator_UserColumnName="Description" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -46,21 +28,5 @@
       <xs:selector xpath=".//mstns:Task" />
       <xs:field xpath="mstns:ID" />
     </xs:unique>
-    <xs:unique name="Events_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:Events" />
-      <xs:field xpath="mstns:ID" />
-    </xs:unique>
-    <xs:unique name="EventType_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:EventType" />
-      <xs:field xpath="mstns:ID" />
-    </xs:unique>
-    <xs:keyref name="FK_EventType_Events" refer="EventType_Constraint1" msdata:ConstraintOnly="true">
-      <xs:selector xpath=".//mstns:Events" />
-      <xs:field xpath="mstns:EventTypeID" />
-    </xs:keyref>
-    <xs:keyref name="FK_Task_Events" refer="Constraint1" msdata:ConstraintOnly="true">
-      <xs:selector xpath=".//mstns:Events" />
-      <xs:field xpath="mstns:TaskID" />
-    </xs:keyref>
   </xs:element>
 </xs:schema>

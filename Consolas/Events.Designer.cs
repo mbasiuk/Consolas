@@ -20,17 +20,17 @@ namespace Consolas {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("Tasks")]
+    [global::System.Xml.Serialization.XmlRootAttribute("Events")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class Tasks : global::System.Data.DataSet {
+    public partial class Events : global::System.Data.DataSet {
         
-        private TaskDataTable tableTask;
+        private EventDataTable tableEvent;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public Tasks() {
+        public Events() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace Consolas {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected Tasks(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected Events(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace Consolas {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["Task"] != null)) {
-                    base.Tables.Add(new TaskDataTable(ds.Tables["Task"]));
+                if ((ds.Tables["Event"] != null)) {
+                    base.Tables.Add(new EventDataTable(ds.Tables["Event"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace Consolas {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public TaskDataTable Task {
+        public EventDataTable Event {
             get {
-                return this.tableTask;
+                return this.tableEvent;
             }
         }
         
@@ -127,7 +127,7 @@ namespace Consolas {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            Tasks cln = ((Tasks)(base.Clone()));
+            Events cln = ((Events)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace Consolas {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["Task"] != null)) {
-                    base.Tables.Add(new TaskDataTable(ds.Tables["Task"]));
+                if ((ds.Tables["Event"] != null)) {
+                    base.Tables.Add(new EventDataTable(ds.Tables["Event"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace Consolas {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableTask = ((TaskDataTable)(base.Tables["Task"]));
+            this.tableEvent = ((EventDataTable)(base.Tables["Event"]));
             if ((initTable == true)) {
-                if ((this.tableTask != null)) {
-                    this.tableTask.InitVars();
+                if ((this.tableEvent != null)) {
+                    this.tableEvent.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace Consolas {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "Tasks";
+            this.DataSetName = "Events";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/Tasks.xsd";
+            this.Namespace = "http://tempuri.org/Events.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableTask = new TaskDataTable();
-            base.Tables.Add(this.tableTask);
+            this.tableEvent = new EventDataTable();
+            base.Tables.Add(this.tableEvent);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeTask() {
+        private bool ShouldSerializeEvent() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace Consolas {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            Tasks ds = new Tasks();
+            Events ds = new Events();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,27 +270,29 @@ namespace Consolas {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void TaskRowChangeEventHandler(object sender, TaskRowChangeEvent e);
+        public delegate void EventRowChangeEventHandler(object sender, EventRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class TaskDataTable : global::System.Data.TypedTableBase<TaskRow> {
+        public partial class EventDataTable : global::System.Data.TypedTableBase<EventRow> {
             
             private global::System.Data.DataColumn columnID;
             
-            private global::System.Data.DataColumn columnTitle;
+            private global::System.Data.DataColumn columnTaskID;
             
-            private global::System.Data.DataColumn columnPath;
+            private global::System.Data.DataColumn columnEventTypeID;
             
-            private global::System.Data.DataColumn columnArguments;
+            private global::System.Data.DataColumn columnDetails;
+            
+            private global::System.Data.DataColumn columnDateTime;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TaskDataTable() {
-                this.TableName = "Task";
+            public EventDataTable() {
+                this.TableName = "Event";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -298,7 +300,7 @@ namespace Consolas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal TaskDataTable(global::System.Data.DataTable table) {
+            internal EventDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -315,7 +317,7 @@ namespace Consolas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected TaskDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected EventDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -330,25 +332,33 @@ namespace Consolas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn TitleColumn {
+            public global::System.Data.DataColumn TaskIDColumn {
                 get {
-                    return this.columnTitle;
+                    return this.columnTaskID;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn PathColumn {
+            public global::System.Data.DataColumn EventTypeIDColumn {
                 get {
-                    return this.columnPath;
+                    return this.columnEventTypeID;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ArgumentsColumn {
+            public global::System.Data.DataColumn DetailsColumn {
                 get {
-                    return this.columnArguments;
+                    return this.columnDetails;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DateTimeColumn {
+                get {
+                    return this.columnDateTime;
                 }
             }
             
@@ -363,55 +373,56 @@ namespace Consolas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TaskRow this[int index] {
+            public EventRow this[int index] {
                 get {
-                    return ((TaskRow)(this.Rows[index]));
+                    return ((EventRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event TaskRowChangeEventHandler TaskRowChanging;
+            public event EventRowChangeEventHandler EventRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event TaskRowChangeEventHandler TaskRowChanged;
+            public event EventRowChangeEventHandler EventRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event TaskRowChangeEventHandler TaskRowDeleting;
+            public event EventRowChangeEventHandler EventRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event TaskRowChangeEventHandler TaskRowDeleted;
+            public event EventRowChangeEventHandler EventRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddTaskRow(TaskRow row) {
+            public void AddEventRow(EventRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TaskRow AddTaskRow(string Title, string Path, string Arguments) {
-                TaskRow rowTaskRow = ((TaskRow)(this.NewRow()));
+            public EventRow AddEventRow(int TaskID, int EventTypeID, string Details, System.DateTime DateTime) {
+                EventRow rowEventRow = ((EventRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        Title,
-                        Path,
-                        Arguments};
-                rowTaskRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowTaskRow);
-                return rowTaskRow;
+                        TaskID,
+                        EventTypeID,
+                        Details,
+                        DateTime};
+                rowEventRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowEventRow);
+                return rowEventRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TaskRow FindByID(int ID) {
-                return ((TaskRow)(this.Rows.Find(new object[] {
+            public EventRow FindByID(int ID) {
+                return ((EventRow)(this.Rows.Find(new object[] {
                             ID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                TaskDataTable cln = ((TaskDataTable)(base.Clone()));
+                EventDataTable cln = ((EventDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -419,16 +430,17 @@ namespace Consolas {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new TaskDataTable();
+                return new EventDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
                 this.columnID = base.Columns["ID"];
-                this.columnTitle = base.Columns["Title"];
-                this.columnPath = base.Columns["Path"];
-                this.columnArguments = base.Columns["Arguments"];
+                this.columnTaskID = base.Columns["TaskID"];
+                this.columnEventTypeID = base.Columns["EventTypeID"];
+                this.columnDetails = base.Columns["Details"];
+                this.columnDateTime = base.Columns["DateTime"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -436,12 +448,14 @@ namespace Consolas {
             private void InitClass() {
                 this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnID);
-                this.columnTitle = new global::System.Data.DataColumn("Title", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTitle);
-                this.columnPath = new global::System.Data.DataColumn("Path", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPath);
-                this.columnArguments = new global::System.Data.DataColumn("Arguments", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnArguments);
+                this.columnTaskID = new global::System.Data.DataColumn("TaskID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTaskID);
+                this.columnEventTypeID = new global::System.Data.DataColumn("EventTypeID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEventTypeID);
+                this.columnDetails = new global::System.Data.DataColumn("Details", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDetails);
+                this.columnDateTime = new global::System.Data.DataColumn("DateTime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDateTime);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -452,28 +466,28 @@ namespace Consolas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TaskRow NewTaskRow() {
-                return ((TaskRow)(this.NewRow()));
+            public EventRow NewEventRow() {
+                return ((EventRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new TaskRow(builder);
+                return new EventRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(TaskRow);
+                return typeof(EventRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.TaskRowChanged != null)) {
-                    this.TaskRowChanged(this, new TaskRowChangeEvent(((TaskRow)(e.Row)), e.Action));
+                if ((this.EventRowChanged != null)) {
+                    this.EventRowChanged(this, new EventRowChangeEvent(((EventRow)(e.Row)), e.Action));
                 }
             }
             
@@ -481,8 +495,8 @@ namespace Consolas {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.TaskRowChanging != null)) {
-                    this.TaskRowChanging(this, new TaskRowChangeEvent(((TaskRow)(e.Row)), e.Action));
+                if ((this.EventRowChanging != null)) {
+                    this.EventRowChanging(this, new EventRowChangeEvent(((EventRow)(e.Row)), e.Action));
                 }
             }
             
@@ -490,8 +504,8 @@ namespace Consolas {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.TaskRowDeleted != null)) {
-                    this.TaskRowDeleted(this, new TaskRowChangeEvent(((TaskRow)(e.Row)), e.Action));
+                if ((this.EventRowDeleted != null)) {
+                    this.EventRowDeleted(this, new EventRowChangeEvent(((EventRow)(e.Row)), e.Action));
                 }
             }
             
@@ -499,14 +513,14 @@ namespace Consolas {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.TaskRowDeleting != null)) {
-                    this.TaskRowDeleting(this, new TaskRowChangeEvent(((TaskRow)(e.Row)), e.Action));
+                if ((this.EventRowDeleting != null)) {
+                    this.EventRowDeleting(this, new EventRowChangeEvent(((EventRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveTaskRow(TaskRow row) {
+            public void RemoveEventRow(EventRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -515,7 +529,7 @@ namespace Consolas {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                Tasks ds = new Tasks();
+                Events ds = new Events();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -533,7 +547,7 @@ namespace Consolas {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "TaskDataTable";
+                attribute2.FixedValue = "EventDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -577,110 +591,138 @@ namespace Consolas {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class TaskRow : global::System.Data.DataRow {
+        public partial class EventRow : global::System.Data.DataRow {
             
-            private TaskDataTable tableTask;
+            private EventDataTable tableEvent;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal TaskRow(global::System.Data.DataRowBuilder rb) : 
+            internal EventRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableTask = ((TaskDataTable)(this.Table));
+                this.tableEvent = ((EventDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int ID {
                 get {
-                    return ((int)(this[this.tableTask.IDColumn]));
+                    return ((int)(this[this.tableEvent.IDColumn]));
                 }
                 set {
-                    this[this.tableTask.IDColumn] = value;
+                    this[this.tableEvent.IDColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Title {
+            public int TaskID {
+                get {
+                    if (this.IsTaskIDNull()) {
+                        return -1;
+                    }
+                    else {
+                        return ((int)(this[this.tableEvent.TaskIDColumn]));
+                    }
+                }
+                set {
+                    this[this.tableEvent.TaskIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int EventTypeID {
                 get {
                     try {
-                        return ((string)(this[this.tableTask.TitleColumn]));
+                        return ((int)(this[this.tableEvent.EventTypeIDColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Title\' in table \'Task\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'EventTypeID\' in table \'Event\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTask.TitleColumn] = value;
+                    this[this.tableEvent.EventTypeIDColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Path {
+            public string Details {
+                get {
+                    if (this.IsDetailsNull()) {
+                        return string.Empty;
+                    }
+                    else {
+                        return ((string)(this[this.tableEvent.DetailsColumn]));
+                    }
+                }
+                set {
+                    this[this.tableEvent.DetailsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime DateTime {
                 get {
                     try {
-                        return ((string)(this[this.tableTask.PathColumn]));
+                        return ((global::System.DateTime)(this[this.tableEvent.DateTimeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Path\' in table \'Task\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'DateTime\' in table \'Event\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTask.PathColumn] = value;
+                    this[this.tableEvent.DateTimeColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Arguments {
-                get {
-                    try {
-                        return ((string)(this[this.tableTask.ArgumentsColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Arguments\' in table \'Task\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableTask.ArgumentsColumn] = value;
-                }
+            public bool IsTaskIDNull() {
+                return this.IsNull(this.tableEvent.TaskIDColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsTitleNull() {
-                return this.IsNull(this.tableTask.TitleColumn);
+            public void SetTaskIDNull() {
+                this[this.tableEvent.TaskIDColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetTitleNull() {
-                this[this.tableTask.TitleColumn] = global::System.Convert.DBNull;
+            public bool IsEventTypeIDNull() {
+                return this.IsNull(this.tableEvent.EventTypeIDColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPathNull() {
-                return this.IsNull(this.tableTask.PathColumn);
+            public void SetEventTypeIDNull() {
+                this[this.tableEvent.EventTypeIDColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPathNull() {
-                this[this.tableTask.PathColumn] = global::System.Convert.DBNull;
+            public bool IsDetailsNull() {
+                return this.IsNull(this.tableEvent.DetailsColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsArgumentsNull() {
-                return this.IsNull(this.tableTask.ArgumentsColumn);
+            public void SetDetailsNull() {
+                this[this.tableEvent.DetailsColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetArgumentsNull() {
-                this[this.tableTask.ArgumentsColumn] = global::System.Convert.DBNull;
+            public bool IsDateTimeNull() {
+                return this.IsNull(this.tableEvent.DateTimeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDateTimeNull() {
+                this[this.tableEvent.DateTimeColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -688,22 +730,22 @@ namespace Consolas {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class TaskRowChangeEvent : global::System.EventArgs {
+        public class EventRowChangeEvent : global::System.EventArgs {
             
-            private TaskRow eventRow;
+            private EventRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TaskRowChangeEvent(TaskRow row, global::System.Data.DataRowAction action) {
+            public EventRowChangeEvent(EventRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TaskRow Row {
+            public EventRow Row {
                 get {
                     return this.eventRow;
                 }

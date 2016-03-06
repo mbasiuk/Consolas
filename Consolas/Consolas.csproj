@@ -55,6 +55,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Events.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Events.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="EventTypes.cs" />
+    <Compile Include="LoggerExtention.cs" />
+    <Compile Include="Tasks.cs">
+      <DependentUpon>Tasks.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Tasks.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -91,11 +101,23 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Events.xsc">
+      <DependentUpon>Events.xsd</DependentUpon>
+    </None>
+    <None Include="Events.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Events.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Events.xss">
+      <DependentUpon>Events.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="readme.md" />
     <None Include="Tasks.xsc">
       <DependentUpon>Tasks.xsd</DependentUpon>
     </None>

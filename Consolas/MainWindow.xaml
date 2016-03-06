@@ -23,14 +23,11 @@
         <Canvas x:Name="editCommandsCanvas" Style="{StaticResource containerStyle}" >
             <DataGrid x:Name="dataGrid" />
         </Canvas>
-        <Canvas x:Name="editEventTypesCanvas" Style="{StaticResource containerStyle}">
-            <DataGrid x:Name="eventTypesDataGrid" />
-        </Canvas>
+
         <Canvas x:Name="runCommandCanvas" Style="{StaticResource containerStyle}">
             <ListView x:Name="runCommandListView" ></ListView>
         </Canvas>
         <Button x:Name="editCommandsButton" Content="edit commands" Canvas.Left="10" Canvas.Top="10" Width="113" Click="editCommands_Click"/>
-        <Button x:Name="editEventTypesButton" Content="edit event types" Canvas.Left="128" Canvas.Top="10" Width="124" Click="editEventTypesButton_Click"/>
         <Button x:Name="runCommandButton" Content="run command" Canvas.Left="257" Canvas.Top="10" Width="102" Click="button_Click"/>
     </Canvas>
 </Window>

@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics;
+using System.IO;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Consolas
 {
@@ -22,7 +12,11 @@ namespace Consolas
     {
 
         Tasks tasks;
+        Events events;
+
         const string fileName = "consolas.xml";
+        const string eventsPath = "events.xml";
+
 
         public MainWindow()
         {
@@ -31,19 +25,36 @@ namespace Consolas
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+
+            events = new Events();
+
+            if (File.Exists(eventsPath))
+            {
+                try { events.ReadXml(eventsPath); }
+                catch (Exception ex)
+                {
+                    Trace.TraceError("failed to read from xml: {0}", ex.Message);
+                }
+            }
+
+            events.AddApplicationLog(EventTypes.ApplicationStarted);
+
+
             tasks = new Tasks();
 
-            if (System.IO.File.Exists(fileName))
+            if (File.Exists(fileName))
             {
                 try
                 {
                     tasks.ReadXml(fileName);
+                    events.AddApplicationLog(EventTypes.ApplicationLoaded);
                 }
                 catch (Exception ex)
                 {
-                    System.Diagnostics.Trace.TraceError("failed to read from xml: {0}", ex.Message);
+                    Trace.TraceError("failed to read from xml: {0}", ex.Message);
+                    events.AddApplicationLog(EventTypes.ApplicationError, ex.Message);
                 }
-            }         
+            }
 
         }
 
@@ -51,11 +62,27 @@ namespace Consolas
         {
             try
             {
+                events.AddApplicationLog(EventTypes.ApplicationEnded);
+            }
+            catch {
+            }
+            try
+            {
                 tasks.WriteXml(fileName);
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Trace.TraceError("failed to write xml: {0}", ex.Message);
+                events.AddApplicationLog(EventTypes.ApplicationError, ex.Message);
+                Trace.TraceError("failed to write xml: {0}", ex.Message);
+            }
+
+            try
+            {
+                events.WriteXml(eventsPath);
+            }
+            catch (Exception ex)
+            {
+                Trace.TraceError("failed to write logs:", ex.Message);
             }
         }
 
@@ -63,9 +90,6 @@ namespace Consolas
         {
             editCommandsCanvas.Visibility = Visibility.Visible;
             editCommandsButton.IsEnabled = false;
-
-            editEventTypesCanvas.Visibility = Visibility.Hidden;            
-            editEventTypesButton.IsEnabled = true;
 
             runCommandCanvas.Visibility = Visibility.Hidden;
             runCommandButton.IsEnabled = true;
@@ -78,47 +102,22 @@ namespace Consolas
                 }
                 catch (Exception ex)
                 {
-                    System.Diagnostics.Trace.TraceError("failed to set task itemsource: ", ex.Message);
+                    Trace.TraceError("failed to set task itemsource: ", ex.Message);
                 }
             }
         }
 
-        private void editEventTypesButton_Click(object sender, RoutedEventArgs e)
-        {
-            editCommandsCanvas.Visibility = Visibility.Hidden;
-            editCommandsButton.IsEnabled = true;
 
-            editEventTypesCanvas.Visibility = Visibility.Visible;
-            editEventTypesButton.IsEnabled = false;
-
-            runCommandCanvas.Visibility = Visibility.Hidden;
-            runCommandButton.IsEnabled = true;
-
-            if (eventTypesDataGrid.ItemsSource == null)
-            {
-                try
-                {
-                    eventTypesDataGrid.ItemsSource = tasks.EventType.DefaultView;
-                }
-                catch (Exception ex)
-                {
-                    System.Diagnostics.Trace.TraceError("failed to set EventType itemsource: ", ex.Message);
-                }
-            }
-        }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
             editCommandsCanvas.Visibility = Visibility.Hidden;
             editCommandsButton.IsEnabled = true;
 
-            editEventTypesCanvas.Visibility = Visibility.Hidden;
-            editEventTypesButton.IsEnabled = true;
-
             runCommandCanvas.Visibility = Visibility.Visible;
             runCommandButton.IsEnabled = false;
 
-            if(runCommandListView.ItemsSource == null)
+            if (runCommandListView.ItemsSource == null)
             {
                 try
                 {
@@ -126,7 +125,7 @@ namespace Consolas
                 }
                 catch (Exception ex)
                 {
-                    System.Diagnostics.Trace.TraceError("failed to set task itemsource: ", ex.Message);
+                    Trace.TraceError("failed to set task itemsource: ", ex.Message);
                 }
             }
         }
