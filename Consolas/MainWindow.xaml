@@ -27,7 +27,14 @@
         <Canvas x:Name="runCommandCanvas" Style="{StaticResource containerStyle}">
             <ListView x:Name="runCommandListView" ></ListView>
         </Canvas>
+
+        <Canvas x:Name="viewLogsCanvas" Style="{StaticResource containerStyle}">
+            <DataGrid x:Name="viewLogsDataGrid" IsReadOnly="True"/>
+        </Canvas>
+                
+        
         <Button x:Name="editCommandsButton" Content="edit commands" Canvas.Left="10" Canvas.Top="10" Width="113" Click="editCommands_Click"/>
-        <Button x:Name="runCommandButton" Content="run command" Canvas.Left="257" Canvas.Top="10" Width="102" Click="button_Click"/>
+        <Button x:Name="runCommandButton" Content="run command" Canvas.Left="128" Canvas.Top="10" Width="102" Click="runComnands_click"/>
+        <Button x:Name="viewLogsButton" Content="view logs" Canvas.Left="235" Canvas.Top="10" Width="102" Click="viewLogsButton_Click"/>
     </Canvas>
 </Window>

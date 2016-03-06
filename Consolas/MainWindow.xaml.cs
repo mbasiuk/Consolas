@@ -88,12 +88,11 @@ namespace Consolas
 
         private void editCommands_Click(object sender, RoutedEventArgs e)
         {
+            HideAllCanvasContainer();
+
             editCommandsCanvas.Visibility = Visibility.Visible;
             editCommandsButton.IsEnabled = false;
-
-            runCommandCanvas.Visibility = Visibility.Hidden;
-            runCommandButton.IsEnabled = true;
-
+           
             if (dataGrid.ItemsSource == null)
             {
                 try
@@ -109,10 +108,9 @@ namespace Consolas
 
 
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void runComnands_click(object sender, RoutedEventArgs e)
         {
-            editCommandsCanvas.Visibility = Visibility.Hidden;
-            editCommandsButton.IsEnabled = true;
+            HideAllCanvasContainer();
 
             runCommandCanvas.Visibility = Visibility.Visible;
             runCommandButton.IsEnabled = false;
@@ -126,6 +124,35 @@ namespace Consolas
                 catch (Exception ex)
                 {
                     Trace.TraceError("failed to set task itemsource: ", ex.Message);
+                }
+            }
+        }
+
+        private void HideAllCanvasContainer()
+        {
+            editCommandsCanvas.Visibility = Visibility.Hidden;
+            viewLogsCanvas.Visibility = Visibility.Hidden;
+            runCommandCanvas.Visibility = Visibility.Hidden;
+            editCommandsButton.IsEnabled = true;
+            runCommandButton.IsEnabled = true;
+            viewLogsButton.IsEnabled = true;
+        }      
+
+        private void viewLogsButton_Click(object sender, RoutedEventArgs e)
+        {
+            HideAllCanvasContainer();
+            viewLogsCanvas.Visibility = Visibility.Visible;
+            viewLogsButton.IsEnabled = false;
+            if(viewLogsDataGrid.ItemsSource == null)
+            {
+                try
+                {
+                    viewLogsDataGrid.ItemsSource = events.Event.DefaultView;
+                }
+                catch(Exception ex)
+                {
+                    events.AddApplicationLog(EventTypes.ApplicationError, ex.Message);
+                    Trace.TraceError(ex.Message);
                 }
             }
         }
