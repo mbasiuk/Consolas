@@ -5,19 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Consolas"
         mc:Ignorable="d"
+        FontFamily="Consolas"
         Title="MainWindow" Height="350" Width="525" Loaded="Window_Loaded" Closing="Window_Closing">
+    <Window.Resources>
+        <Style TargetType="DataGrid">
+            <Setter Property="MinColumnWidth" Value="100"></Setter>
+        </Style>
+        <Style TargetType="Canvas" x:Key="containerStyle">
+            <Setter Property="Canvas.Left" Value="10"></Setter>
+            <Setter Property="Canvas.Top" Value="40"></Setter>
+            <Setter Property="VerticalAlignment" Value="Top"></Setter>
+            <Setter Property="Visibility" Value="Hidden"></Setter>
+        </Style>
+    </Window.Resources>
+
     <Canvas Background="#FFEEAFAF">
-        <Canvas x:Name="editCommandsCanvas" Height="264" Canvas.Left="10" Canvas.Top="47" Width="498" Background="#FFE7D9D9" VerticalAlignment="Top" Visibility="Hidden">
-            <DataGrid x:Name="dataGrid" Canvas.Top="10" Height="281" Width="479" Canvas.Left="9"/>
+        <Canvas x:Name="editCommandsCanvas" Style="{StaticResource containerStyle}" >
+            <DataGrid x:Name="dataGrid" />
         </Canvas>
-        <Canvas x:Name="editEventTypesCanvas" Height="264" Canvas.Left="10" Canvas.Top="47" Width="498" Background="#FFE7D9D9" VerticalAlignment="Top" Visibility="Hidden">
-            <DataGrid x:Name="eventTypesDataGrid" Canvas.Top="10" Height="281" Width="479" Canvas.Left="9"/>
+        <Canvas x:Name="editEventTypesCanvas" Style="{StaticResource containerStyle}">
+            <DataGrid x:Name="eventTypesDataGrid" />
         </Canvas>
-        <Canvas x:Name="runCommandCanvas" Height="264" Canvas.Left="10" Canvas.Top="47" Width="498" Background="#FFE7D9D9" VerticalAlignment="Top" Visibility="Hidden">
-            <ListView x:Name="runCommandListView" Height="264" Width="498"></ListView>
+        <Canvas x:Name="runCommandCanvas" Style="{StaticResource containerStyle}">
+            <ListView x:Name="runCommandListView" ></ListView>
         </Canvas>
-        <Button x:Name="editCommandsButton" Content="Edit Commands" Canvas.Left="10" Canvas.Top="10" Width="113" Click="editCommands_Click"/>
-        <Button x:Name="editEventTypesButton" Content="edit event types" Canvas.Left="128" Canvas.Top="10" Width="99" Click="editEventTypesButton_Click"/>
-        <Button x:Name="runCommandButton" Content="run command" Canvas.Left="232" Canvas.Top="10" Width="102" Click="button_Click"/>
+        <Button x:Name="editCommandsButton" Content="edit commands" Canvas.Left="10" Canvas.Top="10" Width="113" Click="editCommands_Click"/>
+        <Button x:Name="editEventTypesButton" Content="edit event types" Canvas.Left="128" Canvas.Top="10" Width="124" Click="editEventTypesButton_Click"/>
+        <Button x:Name="runCommandButton" Content="run command" Canvas.Left="257" Canvas.Top="10" Width="102" Click="button_Click"/>
     </Canvas>
 </Window>

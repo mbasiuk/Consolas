@@ -11,18 +11,6 @@
     <Shape ID="DesignTable:EventType" ZOrder="3" X="954" Y="194" Height="172" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="168" />
   </Shapes>
   <Connectors>
-    <Connector ID="DesignRelation:FK_EventType_Events" ZOrder="2" LineWidth="11">
-      <RoutePoints>
-        <Point>
-          <X>954</X>
-          <Y>280</Y>
-        </Point>
-        <Point>
-          <X>914</X>
-          <Y>280</Y>
-        </Point>
-      </RoutePoints>
-    </Connector>
     <Connector ID="DesignRelation:FK_Task_Events" ZOrder="1" LineWidth="11">
       <RoutePoints>
         <Point>
@@ -32,6 +20,18 @@
         <Point>
           <X>764</X>
           <Y>293</Y>
+        </Point>
+      </RoutePoints>
+    </Connector>
+    <Connector ID="DesignRelation:FK_EventType_Events" ZOrder="2" LineWidth="11">
+      <RoutePoints>
+        <Point>
+          <X>954</X>
+          <Y>280</Y>
+        </Point>
+        <Point>
+          <X>914</X>
+          <Y>280</Y>
         </Point>
       </RoutePoints>
     </Connector>

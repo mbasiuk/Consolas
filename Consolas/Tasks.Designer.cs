@@ -262,16 +262,16 @@ namespace Consolas {
             this.tableEventType = new EventTypeDataTable();
             base.Tables.Add(this.tableEventType);
             global::System.Data.ForeignKeyConstraint fkc;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_Task_Events", new global::System.Data.DataColumn[] {
-                        this.tableTask.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableEvents.TaskIDColumn});
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_EventType_Events", new global::System.Data.DataColumn[] {
+                        this.tableEventType.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableEvents.EventTypeIDColumn});
             this.tableEvents.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_EventType_Events", new global::System.Data.DataColumn[] {
-                        this.tableEventType.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableEvents.EventTypeIDColumn});
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_Task_Events", new global::System.Data.DataColumn[] {
+                        this.tableTask.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableEvents.TaskIDColumn});
             this.tableEvents.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
@@ -481,10 +481,10 @@ namespace Consolas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TaskRow AddTaskRow(int ID, string Title, string Path, string Arguments) {
+            public TaskRow AddTaskRow(string Title, string Path, string Arguments) {
                 TaskRow rowTaskRow = ((TaskRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        ID,
+                        null,
                         Title,
                         Path,
                         Arguments};
@@ -536,6 +536,7 @@ namespace Consolas {
                 base.Columns.Add(this.columnArguments);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
+                this.columnID.AutoIncrement = true;
                 this.columnID.AllowDBNull = false;
                 this.columnID.Unique = true;
             }
