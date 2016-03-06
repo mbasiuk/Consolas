@@ -42,8 +42,10 @@
             <DataGrid x:Name="dataGrid" />
         </Canvas>
 
-        <Canvas x:Name="runCommandCanvas" Style="{StaticResource containerStyle}">
-            <ListView x:Name="runCommandListView" Style="{StaticResource ListBoxStyle}"></ListView>
+        <Canvas x:Name="runCommandCanvas" Style="{StaticResource containerStyle}" >
+            <ListView x:Name="runCommandListView" Style="{StaticResource ListBoxStyle}" MaxWidth="100"></ListView>
+            <TextBox Height="400" Width="400" Canvas.Top="40" Canvas.Left="100" x:Name="TextBlockOutput" Background="White" Visibility="Hidden"></TextBox>
+            <TextBox Height="400" Width="400" Canvas.Top="40" Canvas.Left="320" x:Name="TextBlockErrorOutput" Background="White" Visibility="Hidden"></TextBox>
         </Canvas>
 
         <Canvas x:Name="viewLogsCanvas" Style="{StaticResource containerStyle}">

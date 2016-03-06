@@ -182,7 +182,7 @@ namespace Consolas
                 ProcessStartInfo startInfo = new ProcessStartInfo
                 {
                     FileName = task.FileName,
-                    Arguments = task.Arguments,                    
+                    Arguments = task.Arguments,
                     UseShellExecute = false,
                     WindowStyle = ProcessWindowStyle.Hidden,
                     CreateNoWindow = true,
@@ -190,6 +190,7 @@ namespace Consolas
                     RedirectStandardError = true
                 };
                 process.StartInfo = startInfo;
+                process.EnableRaisingEvents = true;
                 process.Start();
                 events.AddTaskLog(task.ID, EventTypes.TaskStarted, task.Title);
             }
@@ -199,6 +200,12 @@ namespace Consolas
             }
             try
             {
+                string output = process.StandardOutput.ReadToEnd();
+                TextBlockOutput.Text = output;
+                string err = process.StandardError.ReadToEnd();
+                TextBlockErrorOutput.Text = err;
+                Console.WriteLine(err);
+
                 process.WaitForExit();
                 events.AddTaskLog(task.ID, EventTypes.TaskCompleted, task.Title);
             }
@@ -206,7 +213,7 @@ namespace Consolas
             {
                 events.AddTaskLog(task.ID, EventTypes.TaskProcessError, task.Title + ": " + ex.Message);
             }
-           
+
         }
     }
 }
