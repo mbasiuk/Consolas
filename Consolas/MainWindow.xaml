@@ -5,8 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Consolas"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-
-    </Grid>
+        Title="MainWindow" Height="350" Width="525" Loaded="Window_Loaded" Closing="Window_Closing">
+    <Canvas Background="#FFEEAFAF">
+        <Canvas x:Name="editCommandsCanvas" Height="264" Canvas.Left="10" Canvas.Top="47" Width="498" Background="#FFE7D9D9" VerticalAlignment="Top" Visibility="Hidden">
+            <DataGrid x:Name="dataGrid" Canvas.Top="10" Height="281" Width="479" Canvas.Left="9"/>
+        </Canvas>
+        <Canvas x:Name="editEventTypesCanvas" Height="264" Canvas.Left="10" Canvas.Top="47" Width="498" Background="#FFE7D9D9" VerticalAlignment="Top" Visibility="Hidden">
+            <DataGrid x:Name="eventTypesDataGrid" Canvas.Top="10" Height="281" Width="479" Canvas.Left="9"/>
+        </Canvas>
+        <Canvas x:Name="runCommandCanvas" Height="264" Canvas.Left="10" Canvas.Top="47" Width="498" Background="#FFE7D9D9" VerticalAlignment="Top" Visibility="Hidden">
+            <ListView x:Name="runCommandListView" Height="264" Width="498"></ListView>
+        </Canvas>
+        <Button x:Name="editCommandsButton" Content="Edit Commands" Canvas.Left="10" Canvas.Top="10" Width="113" Click="editCommands_Click"/>
+        <Button x:Name="editEventTypesButton" Content="edit event types" Canvas.Left="128" Canvas.Top="10" Width="99" Click="editEventTypesButton_Click"/>
+        <Button x:Name="runCommandButton" Content="run command" Canvas.Left="232" Canvas.Top="10" Width="102" Click="button_Click"/>
+    </Canvas>
 </Window>
