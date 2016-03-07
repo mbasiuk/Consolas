@@ -106,18 +106,17 @@ namespace Consolas
 
             editCommandsCanvas.Visibility = Visibility.Visible;
             editCommandsButton.IsEnabled = false;
-
+            events.AddApplicationLog(EventTypes.OpenTaskEditSection);
 
             if (dataGrid.ItemsSource == null)
             {
                 try
                 {
                     dataGrid.ItemsSource = tasks.Task.DefaultView;
-                    events.AddApplicationLog(EventTypes.TaskEdit);
                 }
                 catch (Exception ex)
                 {
-                    events.AddApplicationLog(EventTypes.ApplicationError);
+                    events.AddApplicationLog(EventTypes.ApplicationError, ex.Message);
                     Trace.TraceError("failed to set task itemsource: ", ex.Message);
                 }
             }
@@ -132,7 +131,7 @@ namespace Consolas
             RunVisibility = Visibility.Visible;
             runCommandButton.IsEnabled = false;
 
-            events.AddApplicationLog(EventTypes.ApplicationInfo, "editing commands");
+            events.AddApplicationLog(EventTypes.OpenTaskRunSection, "running commands");
 
             if (runCommandListView.ItemsSource == null)
             {
@@ -143,7 +142,7 @@ namespace Consolas
                 catch (Exception ex)
                 {
                     Trace.TraceError("failed to set task itemsource: ", ex.Message);
-                    events.AddApplicationLog(EventTypes.ApplicationError);
+                    events.AddApplicationLog(EventTypes.ApplicationError, ex.Message);
                 }
             }
         }
@@ -163,7 +162,8 @@ namespace Consolas
             HideAllCanvasContainer();
             viewLogsCanvas.Visibility = Visibility.Visible;
             viewLogsButton.IsEnabled = false;
-            events.AddApplicationLog(EventTypes.ApplicationInfo, "view logs");
+            events.AddApplicationLog(EventTypes.OpenLogViewSection);
+
             if (viewLogsDataGrid.ItemsSource == null)
             {
                 try
