@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Consolas"
         mc:Ignorable="d"
         FontFamily="Consolas"
+        x:Name="mainWindow"
         Title="MainWindow" Height="350" Width="525" Loaded="Window_Loaded" Closing="Window_Closing">
     <Window.Resources>
         <local:HeightCoverter x:Key="heightCoverter" />
@@ -35,26 +36,46 @@
             <Setter Property="ItemTemplate" Value="{StaticResource DataTemplate1}" />
         </Style>
 
+        <Style TargetType="TextBox" >
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+
+        <Style x:Key="commandButton" TargetType="Button">
+            <Setter Property="Margin" Value="10 0"/>
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Height" Value="18" />
+        </Style>
+
     </Window.Resources>
 
-    <Canvas x:Name="LayoutRoot" Background="#FFEEAFAF">
-        <Canvas x:Name="editCommandsCanvas" Style="{StaticResource containerStyle}" >
+    <Grid x:Name="LayoutRoot" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Canvas x:Name="editCommandsCanvas" Style="{StaticResource containerStyle}" Margin="10,4,186,0" Grid.Row="1" >
             <DataGrid x:Name="dataGrid" />
         </Canvas>
 
-        <Canvas x:Name="runCommandCanvas" Style="{StaticResource containerStyle}" >
-            <ListView x:Name="runCommandListView" Style="{StaticResource ListBoxStyle}" MaxWidth="100"></ListView>
-            <TextBox Height="400" Width="400" Canvas.Top="40" Canvas.Left="100" x:Name="TextBlockOutput" Background="White" Visibility="Hidden"></TextBox>
-            <TextBox Height="400" Width="400" Canvas.Top="40" Canvas.Left="320" x:Name="TextBlockErrorOutput" Background="White" Visibility="Hidden"></TextBox>
-        </Canvas>
 
-        <Canvas x:Name="viewLogsCanvas" Style="{StaticResource containerStyle}">
+        <ListView x:Name="runCommandListView" Style="{StaticResource ListBoxStyle}" Grid.RowSpan="2" Grid.Row="1" Visibility="{Binding RunVisibility, ElementName=mainWindow}" />
+        <TextBox  x:Name="TextBlockOutput" Background="White" Grid.Row="1" Grid.Column="1" Visibility="{Binding RunVisibility, ElementName=mainWindow}" />
+        <TextBox  x:Name="TextBlockErrorOutput" Background="White" Grid.Row="2" Grid.Column="1" Visibility="{Binding RunVisibility, ElementName=mainWindow}" />
+
+
+        <Canvas x:Name="viewLogsCanvas" Style="{StaticResource containerStyle}" Margin="10,4,186,0" Grid.Row="1">
             <DataGrid x:Name="viewLogsDataGrid" IsReadOnly="True"/>
         </Canvas>
 
-
-        <Button x:Name="editCommandsButton" Content="edit commands" Canvas.Left="10" Canvas.Top="10" Width="113" Click="editCommands_Click"/>
-        <Button x:Name="runCommandButton" Content="run command" Canvas.Left="128" Canvas.Top="10" Width="102" Click="runComnands_click"/>
-        <Button x:Name="viewLogsButton" Content="view logs" Canvas.Left="235" Canvas.Top="10" Width="102" Click="viewLogsButton_Click"/>
-    </Canvas>
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2">
+            <Button x:Name="runCommandButton" Content="run command" Click="runComnands_click" Style="{StaticResource commandButton}" />
+            <Button x:Name="viewLogsButton" Content="view logs" Click="viewLogsButton_Click" Style="{StaticResource commandButton}" />
+            <Button x:Name="editCommandsButton" Content="edit commands" Click="editCommands_Click" Style="{StaticResource commandButton}" />
+        </StackPanel>
+    </Grid>
 </Window>

@@ -19,6 +19,18 @@ namespace Consolas
         const string eventsPath = "events.xml";
 
 
+        public Visibility RunVisibility
+        {
+            get { return (Visibility)GetValue(RunVisibilityProperty); }
+            set { SetValue(RunVisibilityProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for RunVisibility.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty RunVisibilityProperty =
+            DependencyProperty.Register("RunVisibility", typeof(Visibility), typeof(Window), new PropertyMetadata(Visibility.Hidden));        
+
+
+
         public MainWindow()
         {
             InitializeComponent();
@@ -117,7 +129,7 @@ namespace Consolas
         {
             HideAllCanvasContainer();
 
-            runCommandCanvas.Visibility = Visibility.Visible;
+            RunVisibility = Visibility.Visible;
             runCommandButton.IsEnabled = false;
 
             events.AddApplicationLog(EventTypes.ApplicationInfo, "editing commands");
@@ -140,7 +152,7 @@ namespace Consolas
         {
             editCommandsCanvas.Visibility = Visibility.Hidden;
             viewLogsCanvas.Visibility = Visibility.Hidden;
-            runCommandCanvas.Visibility = Visibility.Hidden;
+            RunVisibility = Visibility.Hidden;
             editCommandsButton.IsEnabled = true;
             runCommandButton.IsEnabled = true;
             viewLogsButton.IsEnabled = true;
@@ -196,7 +208,7 @@ namespace Consolas
             }
             catch (Exception ex)
             {
-                events.AddTaskLog(task.ID, EventTypes.TaskStartError, task.Title + ": " + ex.Message);
+                events.AddTaskLog(task.ID, EventTypes.TaskStartError, task.Title + ": " + ex.Message);                
             }
             try
             {
