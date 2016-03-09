@@ -155,6 +155,11 @@ namespace Consolas
             editCommandsButton.IsEnabled = true;
             runCommandButton.IsEnabled = true;
             viewLogsButton.IsEnabled = true;
+            if(tasks != null)
+            {
+                tasks.AcceptChanges();
+            }
+            
         }
 
         private void viewLogsButton_Click(object sender, RoutedEventArgs e)
@@ -188,27 +193,32 @@ namespace Consolas
         private void startExecutingTask(Tasks.TaskRow task)
         {
             Process process = null;
+            TextBlockErrorOutput.Text = string.Empty;
+            TextBlockOutput.Text = string.Empty;
             try
             {
                 process = new Process();
                 ProcessStartInfo startInfo = new ProcessStartInfo
                 {
                     FileName = task.FileName,
+                    WorkingDirectory = Environment.ExpandEnvironmentVariables(task.WorkingDirectory),                    
                     Arguments = task.Arguments,
                     UseShellExecute = false,
                     WindowStyle = ProcessWindowStyle.Hidden,
                     CreateNoWindow = true,
                     RedirectStandardOutput = true,
-                    RedirectStandardError = true
+                    RedirectStandardError = true                    
                 };
                 process.StartInfo = startInfo;
                 process.EnableRaisingEvents = true;
+                
                 process.Start();
                 events.AddTaskLog(task.ID, EventTypes.TaskStarted, task.Title);
             }
             catch (Exception ex)
             {
-                events.AddTaskLog(task.ID, EventTypes.TaskStartError, task.Title + ": " + ex.Message);                
+                events.AddTaskLog(task.ID, EventTypes.TaskStartError, task.Title + ": " + ex.Message);
+                TextBlockErrorOutput.Text += ex.Message;
             }
             try
             {
@@ -223,6 +233,7 @@ namespace Consolas
             }
             catch (Exception ex)
             {
+                TextBlockErrorOutput.Text += ex.Message;
                 events.AddTaskLog(task.ID, EventTypes.TaskProcessError, task.Title + ": " + ex.Message);
             }
 

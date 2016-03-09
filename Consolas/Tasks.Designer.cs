@@ -287,6 +287,8 @@ namespace Consolas {
             
             private global::System.Data.DataColumn columnArguments;
             
+            private global::System.Data.DataColumn columnWorkingDirectory;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public TaskDataTable() {
@@ -354,6 +356,14 @@ namespace Consolas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn WorkingDirectoryColumn {
+                get {
+                    return this.columnWorkingDirectory;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -389,13 +399,14 @@ namespace Consolas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TaskRow AddTaskRow(string Title, string FileName, string Arguments) {
+            public TaskRow AddTaskRow(string Title, string FileName, string Arguments, string WorkingDirectory) {
                 TaskRow rowTaskRow = ((TaskRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Title,
                         FileName,
-                        Arguments};
+                        Arguments,
+                        WorkingDirectory};
                 rowTaskRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTaskRow);
                 return rowTaskRow;
@@ -429,6 +440,7 @@ namespace Consolas {
                 this.columnTitle = base.Columns["Title"];
                 this.columnFileName = base.Columns["FileName"];
                 this.columnArguments = base.Columns["Arguments"];
+                this.columnWorkingDirectory = base.Columns["WorkingDirectory"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -442,6 +454,8 @@ namespace Consolas {
                 base.Columns.Add(this.columnFileName);
                 this.columnArguments = new global::System.Data.DataColumn("Arguments", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnArguments);
+                this.columnWorkingDirectory = new global::System.Data.DataColumn("WorkingDirectory", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWorkingDirectory);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -649,6 +663,22 @@ namespace Consolas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string WorkingDirectory {
+                get {
+                    if (this.IsWorkingDirectoryNull()) {
+                        return string.Empty;
+                    }
+                    else {
+                        return ((string)(this[this.tableTask.WorkingDirectoryColumn]));
+                    }
+                }
+                set {
+                    this[this.tableTask.WorkingDirectoryColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsTitleNull() {
                 return this.IsNull(this.tableTask.TitleColumn);
             }
@@ -681,6 +711,18 @@ namespace Consolas {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetArgumentsNull() {
                 this[this.tableTask.ArgumentsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsWorkingDirectoryNull() {
+                return this.IsNull(this.tableTask.WorkingDirectoryColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetWorkingDirectoryNull() {
+                this[this.tableTask.WorkingDirectoryColumn] = global::System.Convert.DBNull;
             }
         }
         

@@ -59,17 +59,17 @@
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
         <Canvas x:Name="editCommandsCanvas" Style="{StaticResource containerStyle}" Margin="10,4,186,0" Grid.Row="1" >
-            <DataGrid x:Name="dataGrid" />
+            <DataGrid x:Name="dataGrid" IsSynchronizedWithCurrentItem="True" />
         </Canvas>
 
 
-        <ListView x:Name="runCommandListView" Style="{StaticResource ListBoxStyle}" Grid.RowSpan="2" Grid.Row="1" Visibility="{Binding RunVisibility, ElementName=mainWindow}" />
-        <TextBox  x:Name="TextBlockOutput" Background="White" Grid.Row="1" Grid.Column="1" Visibility="{Binding RunVisibility, ElementName=mainWindow}" />
+        <ListView x:Name="runCommandListView" IsSynchronizedWithCurrentItem="True" Style="{StaticResource ListBoxStyle}" Grid.RowSpan="2" Grid.Row="1" Visibility="{Binding RunVisibility, ElementName=mainWindow}" />
+        <TextBox  x:Name="TextBlockOutput" Background="White" Grid.Row="1" Grid.Column="1" Visibility="{Binding RunVisibility, ElementName=mainWindow}" VerticalScrollBarVisibility="Auto" />
         <TextBox  x:Name="TextBlockErrorOutput" Background="White" Grid.Row="2" Grid.Column="1" Visibility="{Binding RunVisibility, ElementName=mainWindow}" />
 
 
         <Canvas x:Name="viewLogsCanvas" Style="{StaticResource containerStyle}" Margin="10,4,186,0" Grid.Row="1">
-            <DataGrid x:Name="viewLogsDataGrid" IsReadOnly="True"/>
+            <DataGrid x:Name="viewLogsDataGrid" IsReadOnly="True" IsSynchronizedWithCurrentItem="True"/>
         </Canvas>
 
         <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2">
