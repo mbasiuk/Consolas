@@ -115,7 +115,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="readme.md" />
     <None Include="Tasks.xsc">
       <DependentUpon>Tasks.xsd</DependentUpon>
     </None>
