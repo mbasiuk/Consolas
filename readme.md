@@ -1,8 +1,8 @@
 ﻿# Features that implemented
 
-1) Storing the Commands
-2) Run Commands
-3) View Logs
+* Run Commands
+* View Logs
+* Creating\Editing\Deleting the commands
 
 ![consolas main screen](screen.png)
 ![consolas view logs](viewlogs.png)
